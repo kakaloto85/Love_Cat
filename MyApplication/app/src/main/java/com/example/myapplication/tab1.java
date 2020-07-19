@@ -14,6 +14,9 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+
 import java.util.ArrayList;
 
 public class tab1 extends AppCompatActivity {
@@ -27,12 +30,9 @@ public class tab1 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_tab1);
 
         gridView = (GridView) findViewById(R.id.gridView);
-        editText = (EditText) findViewById(R.id.editText);
-        editText2 = (EditText) findViewById(R.id.editText2);
-        button = (Button) findViewById(R.id.button);
 
         singerAdapter = new SingerAdapter();
         singerAdapter.addItem(new SingerItem("소녀시대", "010-1000-1000", R.drawable.ang));
@@ -49,16 +49,27 @@ public class tab1 extends AppCompatActivity {
 
             }
         });
-
-        button.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton fab = findViewById(R.id.button);
+        fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String name = editText.getText().toString().trim();
-                String tel = editText2.getText().toString().trim();
-                singerAdapter.addItem(new SingerItem(name, tel, R.drawable.ang));
-
+                Snackbar.make(view, "Here's a Snackbar", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+                singerAdapter.addItem(new SingerItem("", "", R.drawable.ang));
+                singerAdapter.notifyDataSetChanged();
+            //추가된 사진 디비에 전달.
             }
         });
+
+//        button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                String name = editText.getText().toString().trim();
+//                String tel = editText2.getText().toString().trim();
+//                singerAdapter.addItem(new SingerItem(name, tel, R.drawable.ang));
+//
+//            }
+//        });
 
 
     }

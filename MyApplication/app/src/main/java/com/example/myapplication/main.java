@@ -26,27 +26,24 @@ public class main extends TabActivity {
 
 // 첫번째 탭(0)
         intent = new Intent(this, tab1.class);
-        spec = tabHost.newTabSpec("artists").setIndicator("Artists",
-                res.getDrawable(R.drawable.ang, null))
+        spec = tabHost.newTabSpec("artists").setIndicator("tab1")
                 .setContent(intent);
         tabHost.addTab(spec);
 
 // 두번째 탭(1)
         intent = new Intent(this, tab2.class);
-        spec = tabHost.newTabSpec("albums").setIndicator("Albums",
-                res.getDrawable(R.drawable.cat, null))
+        spec = tabHost.newTabSpec("albums").setIndicator("tab2")
                 .setContent(intent);
         tabHost.addTab(spec);
 
 // 세번째 탭(2)
         intent = new Intent(this, tab3.class);
-        spec = tabHost.newTabSpec("songs").setIndicator("Songs",
-                res.getDrawable(R.drawable.dog, null))
+        spec = tabHost.newTabSpec("songs").setIndicator("tab3")
                 .setContent(intent);
         tabHost.addTab(spec);
 
 // 세번째 탭 선택
-        tabHost.setCurrentTab(0);
+        tabHost.setCurrentTab(2);
     }
 
 }

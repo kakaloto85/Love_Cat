@@ -92,23 +92,6 @@
         android:layout_marginVertical="15dp"
 
         >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/signup4"
-            android:textSize="20sp"
-            android:text="애완동물을 키워보셨나요?"
-            android:fontFamily="@font/nanumbarunpenb"
-            android:layout_marginRight="100dp" />
-
-        <EditText
-            android:id="@+id/Sample4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="editable = true" />
     </LinearLayout>
 
     <LinearLayout

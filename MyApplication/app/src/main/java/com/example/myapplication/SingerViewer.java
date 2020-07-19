@@ -30,14 +30,10 @@ public class SingerViewer extends LinearLayout {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         inflater.inflate(R.layout.singeritem,this,true);
 
-        textView = (TextView)findViewById(R.id.textView);
-        textView2 = (TextView)findViewById(R.id.textView2);
         imageView = (ImageView) findViewById(R.id.imageView);
     }
 
     public void setItem(SingerItem singerItem){
-        textView.setText(singerItem.getName());
-        textView2.setText(singerItem.getTel());
         imageView.setImageResource(singerItem.getImage());
     }
 }

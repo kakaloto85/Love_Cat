@@ -71,7 +71,7 @@
                 android:layout_width="154dp"
                 android:layout_height="107dp"
                 android:layout_marginLeft="20dp"
-                android:text="profile_content" />
+                android:text="profile" />
 
 
             <!--            </LinearLayout>-->
@@ -95,59 +95,49 @@
         android:layout_alignParentTop="true"
         android:orientation="horizontal">
 
-<!--        <Button-->
-<!--            android:id="@+id/button"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:layout_weight="1"-->
-<!--            android:text="추가" />-->
+        <!--        <Button-->
+        <!--            android:id="@+id/button"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="match_parent"-->
+        <!--            android:layout_weight="1"-->
+        <!--            android:text="추가" />-->
 
-<!--        <EditText-->
-<!--            android:id="@+id/editText"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:layout_weight="1"-->
-<!--            android:hint="이름"-->
-<!--            android:inputType="textPersonName" />-->
+        <!--        <EditText-->
+        <!--            android:id="@+id/editText"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="match_parent"-->
+        <!--            android:layout_weight="1"-->
+        <!--            android:hint="이름"-->
+        <!--            android:inputType="textPersonName" />-->
 
-<!--        <EditText-->
-<!--            android:id="@+id/editText2"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:layout_weight="1"-->
-<!--            android:hint="전화번호"-->
-<!--            android:inputType="phone" />-->
+        <!--        <EditText-->
+        <!--            android:id="@+id/editText2"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="match_parent"-->
+        <!--            android:layout_weight="1"-->
+        <!--            android:hint="전화번호"-->
+        <!--            android:inputType="phone" />-->
 
     </LinearLayout>
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    <GridView
-        android:id="@+id/gridView"
-        android:layout_width="match_parent"
-        android:layout_height="508dp"
-        android:layout_alignParentLeft="true"
-        android:numColumns="2">
+        <GridView
+            android:id="@+id/gridView"
+            android:layout_width="match_parent"
+            android:layout_height="508dp"
+            android:layout_alignParentLeft="true"
+            android:numColumns="2">
 
 
-    </GridView>
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|right"
-        android:layout_weight="1"
-        android:text="추가" />
+        </GridView>
+<!--        <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--            android:id="@+id/button"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="bottom|right"-->
+<!--            android:layout_weight="1"-->
+<!--            android:text="추가" />-->
 
     </FrameLayout>
 </LinearLayout>
-<!--android:layout_width="match_parent"-->
-<!--android:layout_height="match_parent"-->
-<!--android:numColumns="auto_fit"-->
-<!--android:columnWidth="90dp"-->
-<!--android:verticalSpacing="5dip"-->
-<!--android:horizontalSpacing="5dip"-->
-<!--android:stretchMode="columnWidth"-->
-<!--android:src="@mipmap/ic_launcher"-->
-<!--android:gravity="center"-->
-<!--android:id="@+id/gridView"-->
