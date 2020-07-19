@@ -2,4 +2,7 @@
     <string name="app_name">My Application</string>
     <string name="facebook_app_id">806196703519537</string>
     <string name="fb_login_protocol_scheme">fb806196703519537</string>
+    <string name="kakao_app_key">a18c73377fe4d6c01a6414069b9c7369</string>
+
+
 </resources>

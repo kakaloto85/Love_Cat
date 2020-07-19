@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/truewhite"
+
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginVertical="15dp"
+        >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/signup1"
+        android:textSize="20sp"
+        android:text="이름을 입력해 주세요!"
+        android:fontFamily="@font/nanumbarunpenb"
+        android:layout_marginRight="100dp" />
+
+    <EditText
+        android:id="@+id/Sample1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="editable = true" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginVertical="15dp"
+
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/signup2"
+            android:textSize="20sp"
+            android:text="연락처를 알려주세요!"
+            android:fontFamily="@font/nanumbarunpenb"
+            android:layout_marginRight="100dp" />
+
+        <EditText
+            android:id="@+id/Sample2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="editable = true" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginVertical="15dp"
+
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/signup3"
+            android:textSize="20sp"
+            android:text="주소를 알려주세요"
+            android:fontFamily="@font/nanumbarunpenb"
+            android:layout_marginRight="100dp" />
+
+        <EditText
+            android:id="@+id/Sample3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="editable = true" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginVertical="15dp"
+
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/signup4"
+            android:textSize="20sp"
+            android:text="애완동물을 키워보셨나요?"
+            android:fontFamily="@font/nanumbarunpenb"
+            android:layout_marginRight="100dp" />
+
+        <EditText
+            android:id="@+id/Sample4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="editable = true" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="154dp"
+        android:layout_marginVertical="15dp"
+        android:gravity="center"
+        android:orientation="vertical"
+
+        >
+
+        <TextView
+            android:id="@+id/signup5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="100dp"
+            android:fontFamily="@font/nanumbarunpenb"
+            android:text="멍/냥"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:orientation="horizontal"
+            android:paddingTop="30dp"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+
+            <ImageButton
+                android:id="@+id/imageButton1"
+                android:layout_width="226dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/dog" />
+
+            <ImageButton
+                android:id="@+id/imageButton2"
+                android:layout_width="222dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:padding="40sp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/cat"
+
+                />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/signup_button"
+        android:fontFamily="@font/nanumbarunpenb"
+
+        android:text="계정생성"
+        />
+
+</LinearLayout>

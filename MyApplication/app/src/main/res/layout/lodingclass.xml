@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:background="@color/truewhite">
+    <LinearLayout
+        android:orientation="vertical"
+        android:gravity="bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:id="@+id/imageView"
+            android:layout_weight="0.82"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:id="@+id/text1"
+            android:textSize="50sp"
+            android:fontFamily="@font/bazzi"
+            android:text="Cat in the box" />
+    </LinearLayout>
+</LinearLayout>
