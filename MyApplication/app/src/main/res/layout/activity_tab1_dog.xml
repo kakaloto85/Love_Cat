@@ -26,8 +26,9 @@
                 <TextView
                     android:id="@+id/petname"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:fontFamily="@font/nanumbarunpenb"
+                    android:layout_height="wrap_content"
+
                     android:layout_marginLeft="20dp"
                     android:text="petname"
                     android:textColor="#000000"
@@ -36,10 +37,10 @@
 
                 <TextView
                     android:id="@+id/email"
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:fontFamily="@font/nanumbarunpenb"
                     android:layout_marginLeft="20dp"
                     android:text="email" />
 
@@ -54,8 +55,8 @@
                     android:layout_width="210dp"
                     android:layout_height="100dp"
                     android:layout_marginLeft="20dp"
-                    android:fontFamily="@font/nanumbarunpenb"
                     android:layout_marginTop="10dp"
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:text="profile_content" />
             </LinearLayout>
 
@@ -65,7 +66,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="20dp"
-            android:src="@drawable/cats">
+            android:src="@drawable/dogs">
         </ImageView>
 
     </LinearLayout>
@@ -95,7 +96,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|right"
             android:layout_margin="20dp"
-            android:src="@drawable/add"
+            android:src="@drawable/foot"
             android:text="추가" />
 
     </FrameLayout>
