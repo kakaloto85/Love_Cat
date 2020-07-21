@@ -21,6 +21,7 @@ public class Add_photo extends Activity {
         mgridView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             public void onItemClick(AdapterView parent, View v, int position, long id){
                 ia.callImageViewer(position);
+                finish();
             }
         });
     }

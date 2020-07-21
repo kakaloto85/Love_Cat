@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -22,7 +23,7 @@ public class Activity_make_sns extends Activity {
         ImageButton Button_dog = findViewById(R.id.dog_sns);
 
         ImageButton Button_cat = findViewById(R.id.cat_sns);
-        final int[] catordog = {0};
+        final int[] catordog = {-1};
 
         Button_dog.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,7 +57,24 @@ public class Activity_make_sns extends Activity {
                 EditText name = findViewById(R.id.petname_insert);
                 EditText profile = findViewById(R.id.profile_insert);
                 JSONObject jsonObject = new JSONObject();
+                if(name.length()==0){
+                    Toast.makeText(Activity_make_sns.this, "이름을 입력해주세요!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(profile.length()==0){
+                    Toast.makeText(Activity_make_sns.this, "소개글을 입력해주세요!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(catordog[0]==-1){
+                    Toast.makeText(Activity_make_sns.this, "강아지/고양이를 선택해주세요!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 try {
+
+
+
+
                     SharedPreferences sf = getSharedPreferences("email",MODE_PRIVATE);
                     String email = sf.getString("email","No email");
 

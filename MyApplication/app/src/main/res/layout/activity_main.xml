@@ -8,27 +8,23 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/btn_custom_login"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="카카오 로그인" />
 
     <com.kakao.usermgmt.LoginButton
         android:id="@+id/btn_kakao_login"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        />
 
     <Button
         android:id="@+id/btn_custom_login_out"
         android:layout_width="match_parent"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="64dp"
+        android:layout_marginRight="64dp"
         android:layout_height="wrap_content"
-        android:text="카카오 로그아웃" />
-    <Button
-        android:id="@+id/out"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="탈출" />
+        android:fontFamily="@font/nanumbarunpenb"
+        android:backgroundTint="#FEE500"
+        android:text="LogOUT WITH KAKAOTALK" />
 
 </LinearLayout>
 

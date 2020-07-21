@@ -1,20 +1,28 @@
 package com.example.myapplication;
 
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+
+import static com.facebook.FacebookSdk.getApplicationContext;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemViewHolder> {
 
@@ -60,7 +68,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemVi
         private TextView community_email;
         private TextView community_content;
         private ImageView community_image;
-        private Button button;
+        private ImageButton button;
         ItemViewHolder(View itemView) {
             super(itemView);
 
@@ -72,10 +80,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemVi
             button = itemView.findViewById(R.id.community_button);
             button.setOnClickListener(new Button.OnClickListener() {
                 public void onClick(View v) {
-                    Intent intent = new Intent(mContext, community_write_activity.class);
-
-                    mContext.startActivity(intent);
-
+                        show();
 //                    int pos = getAdapterPosition() ;
 //                    if (pos != RecyclerView.NO_POSITION) {
 //                        Log.d("RecyclerAdapter","good");
@@ -103,6 +108,35 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemVi
             button = itemView.findViewById(R.id.community_button);
 
         }
+        void show()
+        {
+            final EditText edittext = new EditText(mContext);
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+            builder.setTitle("문자를 입력하세요");
+            builder.setMessage("내용");
+            builder.setView(edittext);
+            builder.setPositiveButton("문자 보내기",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            Toast.makeText(getApplicationContext(),edittext.getText().toString() ,Toast.LENGTH_LONG).show();
+                            SmsManager smsManager = SmsManager.getDefault();
+                            smsManager.sendTextMessage(community_number.getText().toString(), null, edittext.getText().toString(), null, null);
+
+                            Toast.makeText(getApplicationContext(), "전송 완료!", Toast.LENGTH_LONG).show();
+
+
+                        }
+                    });
+            builder.setNegativeButton("취소",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+
+                        }
+                    });
+            builder.show();
+        }
 
     }
+
 }

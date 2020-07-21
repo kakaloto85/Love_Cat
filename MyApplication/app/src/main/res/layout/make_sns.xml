@@ -4,115 +4,112 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/truewhite"
+    android:background="@color/truewhite">
 
-    >
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:gravity="center"
-        android:layout_marginVertical="15dp"
-        >
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/petname_text"
             android:textSize="20sp"
             android:text="강아지/고양이이름을 입력해 주세요!"
-            android:fontFamily="@font/nanumbarunpenb"
-            android:layout_gravity="center" />
+            android:fontFamily="@font/nanumbarunpenb" />
 
         <EditText
             android:id="@+id/petname_insert"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:ems="10"
+            android:ems="17"
             android:inputType="textPersonName"
-            android:text="editable = true" />
+            android:text="" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:gravity="center"
-        android:layout_marginVertical="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp">
 
-        >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/profile_text"
             android:textSize="20sp"
             android:text="소개글을 적어주세요!"
-            android:fontFamily="@font/nanumbarunpenb"
-            android:layout_gravity="center" />
+            android:fontFamily="@font/nanumbarunpenb" />
 
         <EditText
             android:id="@+id/profile_insert"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:ems="10"
+            android:ems="17"
             android:inputType="textPersonName"
-            android:text="editable = true" />
-
-
+            android:text="" />
 
     </LinearLayout>
-    <TextView
-        android:id="@+id/favorite_text"
-        android:layout_gravity="center"
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/nanumbarunpenb"
-        android:text="강아지/고양이를 골라주세요!"
-        android:textSize="20sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="bottom"
-        android:orientation="horizontal"
-        android:paddingTop="30dp"
-        app:layout_constraintBottom_toBottomOf="parent">
+        android:layout_height="200dp"
+        android:orientation="vertical"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="20dp">
 
-
-        <ImageButton
-            android:id="@+id/dog_sns"
-            android:layout_width="226dp"
-            android:layout_height="249dp"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:scaleType="centerCrop"
-            android:src="@drawable/dog" />
-
-        <ImageButton
-            android:id="@+id/cat_sns"
-            android:layout_width="222dp"
+        <TextView
+            android:id="@+id/favorite_text"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:padding="40sp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/cat"
+            android:fontFamily="@font/nanumbarunpenb"
+            android:text="강아지/고양이를 골라주세요!"
+            android:textSize="20sp" />
 
-            />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:orientation="horizontal">
+            <ImageButton
+                android:id="@+id/dog_sns"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="20dp"
+                android:background="@android:color/transparent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/dogs" />
 
+            <ImageButton
+                android:id="@+id/cat_sns"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="20dp"
+                android:background="@android:color/transparent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/cats" />
+
+        </LinearLayout>
 
     </LinearLayout>
-
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/sns_signup_btn"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
         android:fontFamily="@font/nanumbarunpenb"
-
-        android:text="SNS생성"
-        />
+        android:backgroundTint="#FFB940"
+        android:text="SNS 생성" />
 
 </LinearLayout>

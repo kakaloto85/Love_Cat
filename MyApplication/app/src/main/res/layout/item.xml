@@ -1,69 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="8dp"
-    android:gravity="center_vertical"
-    android:layout_marginBottom="8dp"
+    android:padding="10dp"
     android:background="#66E6E6FA">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="213dp"
+                android:id="@+id/community_image"
+                android:src="@drawable/ang">
+            </ImageView>
+        </LinearLayout>
 
-
-        <ImageView
-            android:layout_width="205dp"
-            android:layout_height="213dp"
-            android:id="@+id/community_image"
-
-            android:src="@drawable/ang"></ImageView>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView
-                android:id="@+id/community_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Title"
-                android:textSize="15sp"
-                android:textColor="@android:color/black"
-                android:textStyle="bold"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="10dp">
 
             <TextView
-                android:id="@+id/community_number"
+                android:id="@+id/community_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumbarunpenb"
+                android:text="Title"
+                android:textColor="@android:color/black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="number"
-                android:textColor="@android:color/black"
-                android:textSize="13sp" />
-            <TextView
-                android:id="@+id/community_email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="email"
-                android:textColor="@android:color/black"
-                android:textSize="13sp" />
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nanumbarunpenb"
+                    android:text="번호:  "
+                    android:textColor="@android:color/black"
+                    android:textSize="13sp"></TextView>
+
+                <TextView
+                    android:id="@+id/community_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nanumbarunpenb"
+                    android:text="number"
+                    android:textColor="@android:color/black"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nanumbarunpenb"
+                    android:text="이메일: "
+                    android:textColor="@android:color/black"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/community_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nanumbarunpenb"
+                    android:text="email"
+                    android:textColor="@android:color/black"
+                    android:textSize="13sp" />
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/community_content"
                 android:layout_width="match_parent"
-                android:layout_height="114dp"
+                android:layout_height="93dp"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:text="text_content"
                 android:textColor="@android:color/black"
                 android:textSize="13sp" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/community_button"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="text" />
+                android:layout_height="36dp"
+
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="#FFB940"
+                android:fontFamily="@font/nanumbarunpenb"
+                android:padding="10dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/message" />
 
         </LinearLayout>
-        </LinearLayout>
 
-
+    </LinearLayout>
 
 </LinearLayout>

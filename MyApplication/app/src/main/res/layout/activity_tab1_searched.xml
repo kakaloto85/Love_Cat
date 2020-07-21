@@ -1,143 +1,272 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical">
+
+
+<LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="170dp"
+    android:orientation="horizontal">
 
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="218dp"
-        android:orientation="horizontal">
-
+        android:layout_width="250dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="191dp"
-            android:layout_height="202dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:orientation="vertical">
-
-            <!--            <LinearLayout-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:orientation="horizontal">-->
-
-            <!--                <TextView-->
-            <!--                    android:layout_width="wrap_content"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:text="name" />-->
+            android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/petname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:fontFamily="@font/nanumbarunpenb"
+                android:text="petname"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/emailtext"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="petname" />
-
-
-            <!--            </LinearLayout>-->
-
-
-            <!--                <TextView-->
-            <!--                    android:layout_width="wrap_content"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:text="name" />-->
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:text="email" />
-
-
-            <!--            <LinearLayout-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:orientation="horizontal">-->
-
-            <!--                <TextView-->
-            <!--                    android:layout_width="wrap_content"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:text="name" />-->
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-
-                android:text="profile" />
-
-            <TextView
-                android:layout_width="154dp"
-                android:layout_height="107dp"
-                android:layout_marginLeft="20dp"
-                android:text="profile" />
-
-
-            <!--            </LinearLayout>-->
 
         </LinearLayout>
 
-        <de.hdodenhof.circleimageview.CircleImageView
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ang"></de.hdodenhof.circleimageview.CircleImageView>
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/profile_content"
+                android:layout_width="210dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/nanumbarunpenb"
+                android:text="profile_content" />
+        </LinearLayout>
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
+    <ImageView
+        android:id="@+id/profile_image"
+        android:layout_width="119dp"
+        android:layout_height="125dp"
+        android:padding="20dp"></ImageView>
 
-        android:layout_alignParentTop="true"
-        android:orientation="horizontal">
 
-        <!--        <Button-->
-        <!--            android:id="@+id/button"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="match_parent"-->
-        <!--            android:layout_weight="1"-->
-        <!--            android:text="추가" />-->
+</LinearLayout>
 
-        <!--        <EditText-->
-        <!--            android:id="@+id/editText"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="match_parent"-->
-        <!--            android:layout_weight="1"-->
-        <!--            android:hint="이름"-->
-        <!--            android:inputType="textPersonName" />-->
+<LinearLayout
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
 
-        <!--        <EditText-->
-        <!--            android:id="@+id/editText2"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="match_parent"-->
-        <!--            android:layout_weight="1"-->
-        <!--            android:hint="전화번호"-->
-        <!--            android:inputType="phone" />-->
+</LinearLayout>
 
-    </LinearLayout>
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <GridView
-            android:id="@+id/gridView"
-            android:layout_width="match_parent"
-            android:layout_height="508dp"
-            android:layout_alignParentLeft="true"
-            android:numColumns="2">
+        android:layout_height="375dp">
 
+        <GridView
+            android:id="@+id/Searched_gridView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:numColumns="2"
+            android:verticalSpacing="1dip">
 
         </GridView>
-<!--        <com.google.android.material.floatingactionbutton.FloatingActionButton-->
-<!--            android:id="@+id/button"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_gravity="bottom|right"-->
-<!--            android:layout_weight="1"-->
-<!--            android:text="추가" />-->
 
     </FrameLayout>
+
+    <Button
+        android:id="@+id/friend_add_button"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_sellect"
+        android:text="친구 추가"></Button>
 </LinearLayout>
+
+
+
+
+    <!--<?xml version="1.0" encoding="utf-8"?>-->
+    <!--<LinearLayout-->
+    <!--    xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--    android:layout_width="match_parent"-->
+    <!--    android:layout_height="match_parent"-->
+    <!--    android:orientation="vertical">-->
+
+
+    <!--    <LinearLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="218dp"-->
+    <!--        android:orientation="horizontal">-->
+
+
+    <!--        <LinearLayout-->
+    <!--            android:layout_width="191dp"-->
+    <!--            android:layout_height="202dp"-->
+    <!--            android:layout_marginTop="20dp"-->
+    <!--            android:orientation="vertical">-->
+
+    <!--            &lt;!&ndash;            <LinearLayout&ndash;&gt;-->
+    <!--            &lt;!&ndash;                android:layout_width="match_parent"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                android:orientation="horizontal">&ndash;&gt;-->
+
+    <!--            &lt;!&ndash;                <TextView&ndash;&gt;-->
+    <!--            &lt;!&ndash;                    android:layout_width="wrap_content"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                    android:text="name" />&ndash;&gt;-->
+
+    <!--            <TextView-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_gravity="center"-->
+    <!--                android:text="petname"-->
+    <!--                android:id="@+id/petname"-->
+
+    <!--                />-->
+
+
+    <!--            &lt;!&ndash;            </LinearLayout>&ndash;&gt;-->
+
+
+    <!--            &lt;!&ndash;                <TextView&ndash;&gt;-->
+    <!--            &lt;!&ndash;                    android:layout_width="wrap_content"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                    android:text="name" />&ndash;&gt;-->
+
+    <!--            <TextView-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_gravity="center"-->
+    <!--                android:text="email"-->
+    <!--                android:id="@+id/emailtext"-->
+
+    <!--                />-->
+
+
+    <!--            &lt;!&ndash;            <LinearLayout&ndash;&gt;-->
+    <!--            &lt;!&ndash;                android:layout_width="match_parent"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                android:orientation="horizontal">&ndash;&gt;-->
+
+    <!--            &lt;!&ndash;                <TextView&ndash;&gt;-->
+    <!--            &lt;!&ndash;                    android:layout_width="wrap_content"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                    android:text="name" />&ndash;&gt;-->
+
+    <!--            <TextView-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_marginLeft="20dp"-->
+
+    <!--                android:text="profile" />-->
+
+    <!--            <TextView-->
+    <!--                android:layout_width="154dp"-->
+    <!--                android:layout_height="107dp"-->
+    <!--                android:layout_marginLeft="20dp"-->
+    <!--                android:text="profile"-->
+    <!--                android:id="@+id/profile_content"-->
+    <!--                />-->
+
+
+    <!--            &lt;!&ndash;            </LinearLayout>&ndash;&gt;-->
+
+    <!--        </LinearLayout>-->
+    <!--<LinearLayout-->
+    <!--    android:layout_width="wrap_content"-->
+    <!--    android:layout_height="match_parent"-->
+    <!--    android:orientation="vertical">-->
+    <!--        <de.hdodenhof.circleimageview.CircleImageView-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="181dp"-->
+    <!--            android:src="@drawable/ang"-->
+    <!--            android:id="@+id/profile_image"-->
+    <!--            ></de.hdodenhof.circleimageview.CircleImageView>-->
+    <!--    <Button-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="친구 추가"-->
+    <!--        android:layout_gravity="center"-->
+    <!--        android:id="@+id/friend_add_button"-->
+    <!--        android:background="@drawable/button_sellect"-->
+    <!--        ></Button>-->
+    <!--</LinearLayout>-->
+    <!--    </LinearLayout>-->
+
+    <!--    <LinearLayout-->
+    <!--        android:id="@+id/linearLayout"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_alignParentStart="true"-->
+    <!--        android:layout_alignParentLeft="true"-->
+
+    <!--        android:layout_alignParentTop="true"-->
+    <!--        android:orientation="horizontal">-->
+
+    <!--        &lt;!&ndash;        <Button&ndash;&gt;-->
+    <!--        &lt;!&ndash;            android:id="@+id/button"&ndash;&gt;-->
+    <!--        &lt;!&ndash;            android:layout_width="wrap_content"&ndash;&gt;-->
+    <!--        &lt;!&ndash;            android:layout_height="match_parent"&ndash;&gt;-->
+    <!--        &lt;!&ndash;            android:layout_weight="1"&ndash;&gt;-->
+    <!--        &lt;!&ndash;            android:text="추가" />&ndash;&gt;-->
+
+    <!--        &lt;!&ndash;        <EditText&ndash;&gt;-->
+    <!--        &lt;!&ndash;            android:id="@+id/editText"&ndash;&gt;-->
+    <!--        &lt;!&ndash;            android:layout_width="wrap_content"&ndash;&gt;-->
+    <!--        &lt;!&ndash;            android:layout_height="match_parent"&ndash;&gt;-->
+    <!--        &lt;!&ndash;            android:layout_weight="1"&ndash;&gt;-->
+    <!--        &lt;!&ndash;            android:hint="이름"&ndash;&gt;-->
+    <!--        &lt;!&ndash;            android:inputType="textPersonName" />&ndash;&gt;-->
+
+    <!--        &lt;!&ndash;        <EditText&ndash;&gt;-->
+    <!--        &lt;!&ndash;            android:id="@+id/editText2"&ndash;&gt;-->
+    <!--        &lt;!&ndash;            android:layout_width="wrap_content"&ndash;&gt;-->
+    <!--        &lt;!&ndash;            android:layout_height="match_parent"&ndash;&gt;-->
+    <!--        &lt;!&ndash;            android:layout_weight="1"&ndash;&gt;-->
+    <!--        &lt;!&ndash;            android:hint="전화번호"&ndash;&gt;-->
+    <!--        &lt;!&ndash;            android:inputType="phone" />&ndash;&gt;-->
+
+    <!--    </LinearLayout>-->
+    <!--    <FrameLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent">-->
+    <!--        <GridView-->
+    <!--            android:id="@+id/Searched_gridView"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="508dp"-->
+    <!--            android:layout_alignParentLeft="true"-->
+    <!--            android:numColumns="2">-->
+
+
+    <!--        </GridView>-->
+    <!--&lt;!&ndash;        <com.google.android.material.floatingactionbutton.FloatingActionButton&ndash;&gt;-->
+    <!--&lt;!&ndash;            android:id="@+id/button"&ndash;&gt;-->
+    <!--&lt;!&ndash;            android:layout_width="wrap_content"&ndash;&gt;-->
+    <!--&lt;!&ndash;            android:layout_height="wrap_content"&ndash;&gt;-->
+    <!--&lt;!&ndash;            android:layout_gravity="bottom|right"&ndash;&gt;-->
+    <!--&lt;!&ndash;            android:layout_weight="1"&ndash;&gt;-->
+    <!--&lt;!&ndash;            android:text="추가" />&ndash;&gt;-->
+
+    <!--    </FrameLayout>-->
+    <!--</LinearLayout>-->
+

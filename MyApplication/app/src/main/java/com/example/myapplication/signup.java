@@ -12,6 +12,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.kakao.auth.AuthType;
 
@@ -59,6 +60,26 @@ public class signup extends Activity {
                 String number = editText2.getText().toString(); //
                 String city = editText3.getText().toString();
                 String email = editText4.getText().toString();
+                if(name.length()==0){
+                    Toast.makeText(signup.this, "이름을 입력해주세요!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(number.length()==0){
+                    Toast.makeText(signup.this, "번호를 입력해주세요!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(city.length()==0){
+                    Toast.makeText(signup.this, "이름을 입력해주세요!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(email.length()==0){
+                    Toast.makeText(signup.this, "이메일을 입력해주세요!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(favorite[0]==-1){
+                    Toast.makeText(signup.this, "강아지/고양이를 골라주세요!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 SharedPreferences sf = getSharedPreferences("email",MODE_PRIVATE);
                 SharedPreferences.Editor editor = sf.edit();

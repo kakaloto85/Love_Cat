@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout   xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="600dp"
+    android:layout_marginTop="50dp"
+    android:orientation="vertical"
+   >
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="355dp"
+        android:layout_height="278dp"
         android:layout_gravity="center"
-        android:src="@drawable/blank_sns_image"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/dog_house"
 
         ></ImageView>
 
@@ -16,13 +21,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
         android:fontFamily="@font/nanumbarunpenb"
         android:text="주인님을 기다리고 있어요!"
-        android:textSize="40dp"></TextView>
+        android:textSize="30dp"></TextView>
 
     <Button
         android:id="@+id/sns_create"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="#FFB940"
+        android:fontFamily="@font/nanumbarunpenb"
         android:text="sns를 만드시겠습니까?"></Button>
 </LinearLayout>

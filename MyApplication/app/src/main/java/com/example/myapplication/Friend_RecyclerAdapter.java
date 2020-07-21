@@ -1,27 +1,35 @@
 package com.example.myapplication;
 
 
+
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
+        import android.view.LayoutInflater;
+        import android.view.View;
+        import android.view.ViewGroup;
+        import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
+        import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
+        import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
+        import java.util.ArrayList;
 
-public class Friend_recycler_adapter extends RecyclerView.Adapter<RecyclerAdapter.ItemViewHolder> {
+import static com.facebook.FacebookSdk.getApplicationContext;
+
+public class Friend_RecyclerAdapter extends RecyclerView.Adapter<Friend_RecyclerAdapter.ItemViewHolder> {
 
     // adapter에 들어갈 list 입니다.
-    private ArrayList<Data> listData = new ArrayList<>();
+    private ArrayList<Friend_data> listData = new ArrayList<>();
     private Context mContext;
-    Friend_recycler_adapter(Context c){
+    Friend_RecyclerAdapter(Context c){
         mContext = c;
     }
 
@@ -30,7 +38,7 @@ public class Friend_recycler_adapter extends RecyclerView.Adapter<RecyclerAdapte
     public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // LayoutInflater를 이용하여 전 단계에서 만들었던 item.xml을 inflate 시킵니다.
         // return 인자는 ViewHolder 입니다.
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.friend_item, parent, false);
         return new ItemViewHolder(view);
     }
 
@@ -46,35 +54,38 @@ public class Friend_recycler_adapter extends RecyclerView.Adapter<RecyclerAdapte
         return listData.size();
     }
 
-    void addItem(Data data) {
+    void addItem(Friend_data friend_data) {
         // 외부에서 item을 추가시킬 함수입니다.
-        listData.add(data);
+        listData.add(friend_data);
     }
 
     // RecyclerView의 핵심인 ViewHolder 입니다.
     // 여기서 subView를 setting 해줍니다.
     class ItemViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView community_title;
-        private TextView community_number;
-        private TextView community_email;
-        private TextView community_content;
-        private ImageView community_image;
+        private TextView friend_name;
+        private TextView friend_email;
         private Button button;
         ItemViewHolder(View itemView) {
             super(itemView);
+            friend_email=itemView.findViewById(R.id.friend_email);
+            friend_name=itemView.findViewById(R.id.friend_name);
 
-            community_title = itemView.findViewById(R.id.community_title);
-            community_number = itemView.findViewById(R.id.community_number);
-            community_email = itemView.findViewById(R.id.community_email);
-            community_content= itemView.findViewById(R.id.community_content);
-            community_image= itemView.findViewById(R.id.community_image);
-            button = itemView.findViewById(R.id.community_button);
+
+            button = itemView.findViewById(R.id.friend_button);
             button.setOnClickListener(new Button.OnClickListener() {
                 public void onClick(View v) {
-                    Intent intent = new Intent(mContext, community_write_activity.class);
+
+
+
+                    //여기서 친구 sns로 접속
+                    Intent intent = new Intent(mContext,searched_tab1_friend.class);
+                    intent.putExtra("user_email",friend_email.getText().toString());
 
                     mContext.startActivity(intent);
+
+
+
 
 //                    int pos = getAdapterPosition() ;
 //                    if (pos != RecyclerView.NO_POSITION) {
@@ -93,14 +104,12 @@ public class Friend_recycler_adapter extends RecyclerView.Adapter<RecyclerAdapte
 
         }
 
-        void onBind(Data data) {
 
-            community_title.setText(data.getTitle());
-            community_number.setText(data.getPhone());
-            community_email.setText(data.getEmail());
-            community_content.setText(data.getContent());
-            community_image.setImageBitmap(data.getImage());
-            button = itemView.findViewById(R.id.community_button);
+        void onBind(Friend_data friend_data) {
+
+            friend_email.setText(friend_data.getEmail());
+            friend_name.setText(friend_data.getName());
+            button = itemView.findViewById(R.id.friend_button);
 
         }
 

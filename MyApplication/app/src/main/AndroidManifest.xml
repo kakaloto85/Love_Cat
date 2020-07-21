@@ -28,6 +28,9 @@
 <activity android:name=".Activity_make_sns"></activity>
         <activity android:name=".signup">
         </activity>
+        <activity android:name=".Searched_tab1">
+        </activity>
+
         <activity android:name=".main">
         </activity>
         <activity android:name=".tab1">
@@ -39,6 +42,8 @@
         <activity android:name=".community_imagepopup">
         </activity>
         <activity android:name=".community_write_activity">
+        </activity>
+        <activity android:name=".searched_tab1_friend">
         </activity>
 
         <activity android:name=".tab3">

@@ -7,8 +7,10 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TabHost;
 
 import androidx.annotation.RequiresApi;
@@ -34,14 +36,13 @@ public class main extends TabActivity {
         Intent intent;
         SharedPreferences sf = getSharedPreferences("email",MODE_PRIVATE);
         String email = sf.getString("email","No email");
-        int favorite = sf.getInt("favorite",-1);
+        int favorite = sf.getInt("favorite",0);
         String url = "http://192.249.19.243:0380/api/check-sns/" + email; 
         GetServer getServer = new GetServer(url);
         getServer.execute();
         try {
             String result = getServer.get();
-            JSONObject jsonObject = null;
-            jsonObject = new JSONObject(result);
+            JSONObject jsonObject = new JSONObject(result);
             sns = jsonObject.getInt("SNS");
 
         } catch (JSONException e) {
@@ -63,23 +64,59 @@ public class main extends TabActivity {
             intent = new Intent(this, tab1_nosns.class);
 
         }
-        spec = tabHost.newTabSpec("artists").setIndicator("tab1")
+
+
+
+        ImageView tab1 = new ImageView(this);
+        ImageView tab2 = new ImageView(this);
+        ImageView tab3 = new ImageView(this);
+        tab1.setImageResource(R.drawable.camera);
+        tab2.setImageResource(R.drawable.community);
+        tab3.setImageResource(R.drawable.search);
+
+
+        spec = tabHost.newTabSpec("artists").setIndicator(tab1)
                 .setContent(intent);
         tabHost.addTab(spec);
 // 두번째 탭(1)
+
+
         intent = new Intent(this, tab2.class);
-        spec = tabHost.newTabSpec("albums").setIndicator("tab2")
-                .setContent(intent);
-        tabHost.addTab(spec);
+
+            if(favorite==1) {
+                tab2.setImageResource(R.drawable.dogs);
+
+                spec = tabHost.newTabSpec("albums").setIndicator(tab2)
+                        .setContent(intent);
+                tabHost.addTab(spec);
+
+            }
+            else{
+                tab2.setImageResource(R.drawable.cats);
+
+                spec = tabHost.newTabSpec("albums").setIndicator(tab2)
+                        .setContent(intent);
+                tabHost.addTab(spec);
+
+            }
 
 // 세번째 탭(2)
         intent = new Intent(this, tab3.class);
-        spec = tabHost.newTabSpec("songs").setIndicator("tab3")
+
+        spec = tabHost.newTabSpec("songs").setIndicator(tab3)
                 .setContent(intent);
         tabHost.addTab(spec);
 
 // 세번째 탭 선택
-        tabHost.setCurrentTab(1);
+        tabHost.setCurrentTab(0);
+
+        DisplayMetrics metrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        int screenHeight=metrics.heightPixels;
+        tabHost.getTabWidget().getChildAt(0).getLayoutParams().height=(screenHeight*15)/200;
+        tabHost.getTabWidget().getChildAt(1).getLayoutParams().height=(screenHeight*15)/200;
+        tabHost.getTabWidget().getChildAt(2).getLayoutParams().height=(screenHeight*15)/200;
+
     }
 
 }

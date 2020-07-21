@@ -31,11 +31,12 @@ public class tab2 extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tab2);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+
         FloatingActionButton gallery_add_btn = findViewById(R.id.community_add_button);
         SharedPreferences sf = getSharedPreferences("email",MODE_PRIVATE);
         String myemail = sf.getString("email","No email");
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
 
         recyclerView.setLayoutManager(linearLayoutManager);
         RecyclerAdapter adapter = new RecyclerAdapter(this);

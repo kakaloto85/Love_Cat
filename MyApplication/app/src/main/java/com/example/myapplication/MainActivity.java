@@ -220,6 +220,7 @@ package com.example.myapplication;
 //}
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -264,28 +265,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mContext=this;
-        btn_out = (Button) findViewById(R.id.out);
-
-        btn_custom_login = (Button) findViewById(R.id.btn_custom_login);
         btn_custom_login_out = (Button) findViewById(R.id.btn_custom_login_out);
 
         session = Session.getCurrentSession();
         session.addCallback(sessionCallback);
 
-        btn_custom_login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                session.open(AuthType.KAKAO_LOGIN_ALL, MainActivity.this);
-            }
-        });
-        btn_out.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent out= new Intent(MainActivity.this,main.class);
-                startActivity(out);
-                finish();
-            }
-        });
 
         btn_custom_login_out.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -381,6 +365,8 @@ public class MainActivity extends AppCompatActivity {
                                         Log.d("RESULT","2");
                                         getServer.execute();
                                         callBackValue = getServer.get();
+                                        Log.d("callBack", callBackValue);
+
                                         Log.d("RESULT", callBackValue);
                                     } catch (ExecutionException e) {
                                         e.printStackTrace();
@@ -424,6 +410,11 @@ public class MainActivity extends AppCompatActivity {
                                     startActivity(intent);
                                 }
                                 else{
+                                    SharedPreferences sf = getSharedPreferences("email",MODE_PRIVATE);
+                                    SharedPreferences.Editor editor = sf.edit();
+                                    editor.putString("email",email);
+                                    editor.commit();
+
                                     Intent intent2 = new Intent(MainActivity.this, main.class);
                                     Log.d("RESULT", "22222222222222222222222222");
 

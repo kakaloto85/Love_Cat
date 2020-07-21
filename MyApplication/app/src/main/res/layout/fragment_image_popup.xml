@@ -23,5 +23,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_height="wrap_content"
         android:textSize="20sp"
+        android:backgroundTint="#FFB940"
+        android:fontFamily="@font/nanumbarunpenb"
         android:text="select"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

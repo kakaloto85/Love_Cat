@@ -14,7 +14,7 @@
         app:queryHint="검색어를 입력하시오" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/friend_recyclerView"
         android:layout_width="match_parent"
         android:layout_height="638dp" />
 
