@@ -34,6 +34,6 @@ public class SingerViewer extends LinearLayout {
     }
 
     public void setItem(SingerItem singerItem){
-        imageView.setImageResource(singerItem.getImage());
+        imageView.setImageBitmap(singerItem.getImage());
     }
 }
