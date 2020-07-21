@@ -218,6 +218,7 @@ package com.example.myapplication;
 //
 //
 //}
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -241,17 +242,29 @@ import com.kakao.usermgmt.response.model.UserAccount;
 import com.kakao.util.OptionalBoolean;
 import com.kakao.util.exception.KakaoException;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.concurrent.ExecutionException;
+
 public class MainActivity extends AppCompatActivity {
 
     private Button btn_custom_login;
     private Button btn_custom_login_out;
+    private Button btn_out;
+
     private SessionCallback sessionCallback = new SessionCallback();
     Session session;
-
+    public Context mContext;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mContext=this;
+        btn_out = (Button) findViewById(R.id.out);
 
         btn_custom_login = (Button) findViewById(R.id.btn_custom_login);
         btn_custom_login_out = (Button) findViewById(R.id.btn_custom_login_out);
@@ -263,6 +276,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 session.open(AuthType.KAKAO_LOGIN_ALL, MainActivity.this);
+            }
+        });
+        btn_out.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent out= new Intent(MainActivity.this,main.class);
+                startActivity(out);
+                finish();
             }
         });
 
@@ -332,22 +353,8 @@ public class MainActivity extends AppCompatActivity {
                         public void onSuccess(MeV2Response result) {
 
 
-//                      Intent intent = new Intent(MainActivity.this, signup.class);
-////                    intent.putExtra("name", result.getNickname());
-////                    intent.putExtra("profile", result.getProfileImagePath());
-////                    if(result.getKakaoAccount().hasEmail() == OptionalBoolean.TRUE) {
-////
-////                        Log.d("??", result.getKakaoAccount().getEmail());
-////                        intent.putExtra("email", result.getKakaoAccount().getEmail());
-////                    }
-////                    else
-////                        intent.putExtra("email", "none");
-////                    if(result.getKakaoAccount().hasGender() == OptionalBoolean.TRUE)
-////                        intent.putExtra("gender", result.getKakaoAccount().getGender().getValue());
-////                    else
-////                        intent.putExtra("gender", "none");
-////                    startActivity(intent);
-//
+                      Intent intent = new Intent(MainActivity.this, signup.class);
+                            String callBackValue = null;
 
 
                             Log.i("KAKAO_API", "사용자 아이디: " + result.getId());
@@ -361,14 +368,32 @@ public class MainActivity extends AppCompatActivity {
 
                                 // 이메일
                                 String email = kakaoAccount.getEmail();
+                                intent.putExtra("email", email);
+
 
                                 if (email != null) {
                                     Log.i("KAKAO_API", "email: " + email);
+                                    String url = "http://192.249.19.243:0380/api/user/" + email;
+                                    GetServer getServer = new GetServer(url);
+
+                                    Log.d("RESULT","1");
+                                    try {
+                                        Log.d("RESULT","2");
+                                        getServer.execute();
+                                        callBackValue = getServer.get();
+                                        Log.d("RESULT", callBackValue);
+                                    } catch (ExecutionException e) {
+                                        e.printStackTrace();
+                                    } catch (InterruptedException e) {
+                                        e.printStackTrace();
+                                    }
 
                                 } else if (kakaoAccount.emailNeedsAgreement() == OptionalBoolean.TRUE) {
+                                    email="";
                                     Log.i("email", "44444444444444444444444444444444444");
 
                                 } else {
+                                    email="";
                                     Log.i("email", "5555555555555555555555555555555555555");
                                 }
 
@@ -379,6 +404,8 @@ public class MainActivity extends AppCompatActivity {
                                     Log.d("KAKAO_API", "nickname: " + profile.getNickname());
                                     Log.d("KAKAO_API", "profile image: " + profile.getProfileImageUrl());
                                     Log.d("KAKAO_API", "thumbnail image: " + profile.getThumbnailImageUrl());
+                                    intent.putExtra("name", profile.getNickname());
+                                    intent.putExtra("profile", profile.getProfileImageUrl());
 
                                 } else if (kakaoAccount.profileNeedsAgreement() == OptionalBoolean.TRUE) {
                                     // 동의 요청 후 프로필 정보 획득 가능
@@ -386,6 +413,50 @@ public class MainActivity extends AppCompatActivity {
                                 } else {
                                     // 프로필 획득 불가
                                 }
+
+
+
+
+
+                                if(callBackValue.equals("[]")){
+                                    Log.d("RESULT", "1211111111111111111");
+
+                                    startActivity(intent);
+                                }
+                                else{
+                                    Intent intent2 = new Intent(MainActivity.this, main.class);
+                                    Log.d("RESULT", "22222222222222222222222222");
+
+                                    //디비에서 sns, favorite 가져오기
+                                    String url = "http://192.249.19.243:0380/api/user/sns/" + email;
+                                    GetServer getServer = new GetServer(url);
+                                    getServer.execute();
+                                    try {
+                                        callBackValue = getServer.get();
+                                        Log.d("RESULT", callBackValue);
+                                        JSONObject jsonObject = new JSONObject(callBackValue);
+
+                                        Log.d("RESULT", "12323123213213213213");
+
+                                        int sns = jsonObject.getInt("SNS");
+                                        intent2.putExtra("sns",sns);
+                                        int favorite = jsonObject.getInt("favorite");
+
+                                        intent2.putExtra("favorite",favorite);
+                                        startActivity(intent2);
+
+                                    } catch (ExecutionException e) {
+                                        e.printStackTrace();
+                                    } catch (InterruptedException e) {
+                                        e.printStackTrace();
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+
+
+                                }
+
+
                             }
                         }
                     });

@@ -23,18 +23,25 @@ public class GetRequest {
             URL url = new URL(_url);
 
             urlConn = (HttpURLConnection) url.openConnection();
-            Log.d("TAG111", "check3");
             urlConn.connect();
+            //urlConn.connect();
+            Log.d("TAG111", "check3");
             // [2-1]. urlConn 설정.
             urlConn.setReadTimeout(10000);
             urlConn.setConnectTimeout(15000);
 
             urlConn.setRequestMethod("GET");
-            urlConn.setDoOutput(true);
-            urlConn.setDoInput(true);
-            //urlConn.setRequestProperty("Accept-Charset", "utf-8");
-            urlConn.setRequestProperty("User-Agent", "Mozilla/5.0");
+//            urlConn.setDoOutput(true);
+//            urlConn.setDoInput(true);
+//            urlConn.setRequestProperty("Context-Type", "application/x-www-form-urlencoded");
+//            urlConn.setRequestProperty("Accept-Charset", "utf-8");
+//            urlConn.setRequestProperty("User-Agent", "Mozilla/5.0");
 
+
+            if (urlConn.getResponseCode() != HttpURLConnection.HTTP_OK){
+                Log.d("CONNECT", "XXX");
+                return null;
+            }
             BufferedReader reader = null;
 
             InputStream stream = urlConn.getInputStream();
@@ -52,7 +59,6 @@ public class GetRequest {
             return buffer.toString();
             //아래는 예외처리 부분이다.
 
-            //return page;
 
         } catch (MalformedURLException e) { // for URL.
             e.printStackTrace();
